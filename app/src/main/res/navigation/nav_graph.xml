@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/locationListFragment">
+
+    <fragment
+        android:id="@+id/locationListFragment"
+        android:name="com.spoelt.allaroundtheworld.LocationListFragment"
+        android:label="fragment_location_list"
+        tools:layout="@layout/fragment_location_list" >
+        <action
+            android:id="@+id/action_locationListFragment_to_locationMapFragment"
+            app:destination="@id/locationMapFragment" />
+        <action
+            android:id="@+id/action_locationListFragment_to_locationDetailFragment"
+            app:destination="@id/locationDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/locationDetailFragment"
+        android:name="com.spoelt.allaroundtheworld.LocationDetailFragment"
+        android:label="fragment_location_detail"
+        tools:layout="@layout/fragment_location_detail" />
+    <fragment
+        android:id="@+id/locationMapFragment"
+        android:name="com.spoelt.allaroundtheworld.LocationMapFragment"
+        android:label="fragment_location_map"
+        tools:layout="@layout/fragment_location_map" >
+        <action
+            android:id="@+id/action_locationMapFragment_to_locationDetailFragment"
+            app:destination="@id/locationDetailFragment" />
+        <action
+            android:id="@+id/action_locationMapFragment_to_locationListFragment"
+            app:destination="@id/locationListFragment" />
+    </fragment>
+</navigation>
