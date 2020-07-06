@@ -1,9 +1,10 @@
-package com.spoelt.allaroundtheworld
+package com.spoelt.allaroundtheworld.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
+import com.spoelt.allaroundtheworld.R
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/locationListFragment"
-        android:name="com.spoelt.allaroundtheworld.LocationListFragment"
+        android:name="com.spoelt.allaroundtheworld.ui.fragments.LocationListFragment"
         android:label="fragment_location_list"
         tools:layout="@layout/fragment_location_list" >
         <action
@@ -19,12 +19,12 @@
     </fragment>
     <fragment
         android:id="@+id/locationDetailFragment"
-        android:name="com.spoelt.allaroundtheworld.LocationDetailFragment"
+        android:name="com.spoelt.allaroundtheworld.ui.fragments.LocationDetailFragment"
         android:label="fragment_location_detail"
         tools:layout="@layout/fragment_location_detail" />
     <fragment
         android:id="@+id/locationMapFragment"
-        android:name="com.spoelt.allaroundtheworld.LocationMapFragment"
+        android:name="com.spoelt.allaroundtheworld.ui.fragments.LocationMapFragment"
         android:label="fragment_location_map"
         tools:layout="@layout/fragment_location_map" >
         <action

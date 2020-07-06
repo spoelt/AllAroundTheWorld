@@ -46,4 +46,7 @@ dependencies {
 
     // Material
     implementation "com.google.android.material:material:$mat_version"
+
+    // Picasso
+    implementation 'com.squareup.picasso:picasso:2.71828'
 }

@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">All Around The World</string>
-
+    <string name="image_content_description">Location Image</string>
 </resources>

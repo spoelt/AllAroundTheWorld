@@ -2,4 +2,8 @@
 <resources>
     <dimen name="std_margin_fragment">16dp</dimen>
     <dimen name="margin_fab">8dp</dimen>
+    <dimen name="card_elevation">1dp</dimen>
+    <dimen name="card_corner_radius">0dp</dimen>
+    <dimen name="image_location_height">200dp</dimen>
+    <dimen name="padding_location_name">10dp</dimen>
 </resources>
