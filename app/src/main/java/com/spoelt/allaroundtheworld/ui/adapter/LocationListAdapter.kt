@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -14,6 +15,7 @@ import kotlinx.android.synthetic.main.recyclerview_item_location.view.*
 
 class LocationListAdapter(private var context: Context, private val dataList: ArrayList<Location>) :
     RecyclerView.Adapter<LocationListAdapter.LocationViewHolder>() {
+    lateinit var itemClickListener: OnItemClickListener
     private val list = ArrayList<Location>(dataList)
 
     override fun getItemCount() = list.size
@@ -28,7 +30,11 @@ class LocationListAdapter(private var context: Context, private val dataList: Ar
         holder.bind(list[position])
     }
 
-    inner class LocationViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class LocationViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
+        init {
+            itemView.placeHolder.setOnClickListener(this)
+        }
+
         private val imageViewLocation: ImageView = itemView.placeImage
         private val textViewLocationName: TextView = itemView.placeName
 
@@ -39,5 +45,15 @@ class LocationListAdapter(private var context: Context, private val dataList: Ar
                 .error(R.drawable.ic_broken_image_gray_24dp)
                 .into(imageViewLocation)*/
         }
+
+        override fun onClick(view: View) = itemClickListener.onItemClick(itemView, adapterPosition)
+    }
+
+    interface OnItemClickListener {
+        fun onItemClick(view: View, position: Int)
+    }
+
+    fun setOnItemClickListener(itemClickListener: OnItemClickListener) {
+        this.itemClickListener = itemClickListener
     }
 }

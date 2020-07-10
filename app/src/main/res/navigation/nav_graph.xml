@@ -11,9 +11,6 @@
         android:label="fragment_location_list"
         tools:layout="@layout/fragment_location_list" >
         <action
-            android:id="@+id/action_locationListFragment_to_locationMapFragment"
-            app:destination="@id/locationMapFragment" />
-        <action
             android:id="@+id/action_locationListFragment_to_locationDetailFragment"
             app:destination="@id/locationDetailFragment" />
     </fragment>
@@ -21,17 +18,11 @@
         android:id="@+id/locationDetailFragment"
         android:name="com.spoelt.allaroundtheworld.ui.fragments.LocationDetailFragment"
         android:label="fragment_location_detail"
-        tools:layout="@layout/fragment_location_detail" />
-    <fragment
-        android:id="@+id/locationMapFragment"
-        android:name="com.spoelt.allaroundtheworld.ui.fragments.LocationMapFragment"
-        android:label="fragment_location_map"
-        tools:layout="@layout/fragment_location_map" >
-        <action
-            android:id="@+id/action_locationMapFragment_to_locationDetailFragment"
-            app:destination="@id/locationDetailFragment" />
-        <action
-            android:id="@+id/action_locationMapFragment_to_locationListFragment"
-            app:destination="@id/locationListFragment" />
+        tools:layout="@layout/fragment_location_detail" >
+        <argument
+            android:name="location"
+            app:argType="com.spoelt.allaroundtheworld.data.Location"
+            app:nullable="true"
+            android:defaultValue="@null" />
     </fragment>
 </navigation>
