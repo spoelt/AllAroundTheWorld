@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">All Around The World</string>
     <string name="image_content_description">Location Image</string>
+    <string name="location_icon_description">Location Icon</string>
+    <string name="enter_location">Location</string>
+    <string name="enter_caption">Caption</string>
+    <string name="save_location">Save Location</string>
+    <string name="choose_file">Choose A File</string>
 </resources>

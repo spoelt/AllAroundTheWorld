@@ -4,7 +4,6 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -40,10 +39,10 @@ class LocationListAdapter(private var context: Context, private val dataList: Ar
 
         fun bind(location: Location) {
             textViewLocationName.text = location.name
-            /*Picasso.get()
+            Picasso.get()
                 .load(location.imagePath)
                 .error(R.drawable.ic_broken_image_gray_24dp)
-                .into(imageViewLocation)*/
+                .into(imageViewLocation)
         }
 
         override fun onClick(view: View) = itemClickListener.onItemClick(itemView, adapterPosition)

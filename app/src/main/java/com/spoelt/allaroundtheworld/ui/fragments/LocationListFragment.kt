@@ -2,12 +2,10 @@ package com.spoelt.allaroundtheworld.ui.fragments
 
 
 import android.os.Bundle
-import android.text.format.DateUtils
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
@@ -18,7 +16,6 @@ import com.spoelt.allaroundtheworld.data.Location
 import com.spoelt.allaroundtheworld.databinding.FragmentLocationListBinding
 import com.spoelt.allaroundtheworld.ui.adapter.LocationListAdapter
 import com.spoelt.allaroundtheworld.ui.viewModel.LocationListViewModel
-import java.util.*
 import kotlin.collections.ArrayList
 
 class LocationListFragment : Fragment() {
@@ -32,6 +29,7 @@ class LocationListFragment : Fragment() {
         override fun onItemClick(view: View, position: Int) {
             val action = LocationListFragmentDirections.actionLocationListFragmentToLocationDetailFragment()
             findNavController().navigate(action)
+            // tbd
         }
     }
 
@@ -46,14 +44,14 @@ class LocationListFragment : Fragment() {
 
         setUpViewModel()
         setUpRecyclerView()
-        setUpClickListener()
+        setUpOnClickListener()
 
         return binding.root
     }
 
-    private fun setUpClickListener() {
+    private fun setUpOnClickListener() {
         binding.fabAddLocation.setOnClickListener {
-            // start new fragment
+            it.findNavController().navigate(R.id.createLocationFragment)
         }
     }
 
