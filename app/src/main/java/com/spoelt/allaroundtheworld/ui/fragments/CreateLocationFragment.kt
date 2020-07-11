@@ -9,10 +9,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
 import com.spoelt.allaroundtheworld.R
+import com.spoelt.allaroundtheworld.data.db.DatabaseBuilder
+import com.spoelt.allaroundtheworld.data.db.DatabaseHelperImpl
 import com.spoelt.allaroundtheworld.databinding.FragmentCreateLocationBinding
 import com.spoelt.allaroundtheworld.ui.viewModel.CreateLocationViewModel
+import com.spoelt.allaroundtheworld.ui.viewModel.ViewModelFactory
 import com.squareup.picasso.Picasso
 
 const val PICK_FILE_RESULT_CODE = 1
@@ -31,7 +34,9 @@ class CreateLocationFragment : Fragment() {
         binding.lifecycleOwner = this
 
         setUpViewModel()
-        setUpOnClickListener()
+        binding.saveLocationButton.setOnClickListener {
+            viewModel.saveLocation()
+        }
         choosePicture()
 
         return binding.root
@@ -50,6 +55,7 @@ class CreateLocationFragment : Fragment() {
                 data!!.data?.let { returnUri ->
                     loadPicture(returnUri)
                     binding.constraintLayout.visibility = View.VISIBLE
+                    viewModel.imagePath.value = returnUri
                 }
             }
         }
@@ -62,14 +68,15 @@ class CreateLocationFragment : Fragment() {
             .into(binding.placeImage)
     }
 
-    private fun setUpOnClickListener() {
-        binding.saveLocationButton.setOnClickListener {
-
-        }
-    }
-
     private fun setUpViewModel() {
-        viewModel = ViewModelProvider(this).get(CreateLocationViewModel::class.java)
+        viewModel = ViewModelProviders.of(
+            this,
+            ViewModelFactory(
+                DatabaseHelperImpl(
+                    DatabaseBuilder.getInstance(requireContext())
+                )
+            )
+        ).get(CreateLocationViewModel::class.java)
         binding.viewModel = viewModel
     }
 }

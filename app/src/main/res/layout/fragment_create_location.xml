@@ -42,7 +42,11 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/textInputLocation"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:maxLength="30"
+                android:inputType="text"
+                android:lines="1"
+                android:text="@={viewModel.locationName}"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -61,7 +65,11 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/textInputCaption"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:maxLength="30"
+                android:inputType="text"
+                android:lines="1"
+                android:text="@={viewModel.caption}" />
 
         </com.google.android.material.textfield.TextInputLayout>
 

@@ -12,7 +12,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.spoelt.allaroundtheworld.R
-import com.spoelt.allaroundtheworld.data.Location
+import com.spoelt.allaroundtheworld.data.model.Location
 import com.spoelt.allaroundtheworld.databinding.FragmentLocationListBinding
 import com.spoelt.allaroundtheworld.ui.adapter.LocationListAdapter
 import com.spoelt.allaroundtheworld.ui.viewModel.LocationListViewModel
@@ -27,8 +27,8 @@ class LocationListFragment : Fragment() {
 
     private val onItemClickListener = object : LocationListAdapter.OnItemClickListener {
         override fun onItemClick(view: View, position: Int) {
-            val action = LocationListFragmentDirections.actionLocationListFragmentToLocationDetailFragment()
-            findNavController().navigate(action)
+            /*val action = LocationListFragmentDirections.actionLocationListFragmentToLocationDetailFragment()
+            findNavController().navigate(action)*/
             // tbd
         }
     }

@@ -8,7 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.spoelt.allaroundtheworld.R
-import com.spoelt.allaroundtheworld.data.Location
+import com.spoelt.allaroundtheworld.data.model.Location
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.recyclerview_item_location.view.*
 

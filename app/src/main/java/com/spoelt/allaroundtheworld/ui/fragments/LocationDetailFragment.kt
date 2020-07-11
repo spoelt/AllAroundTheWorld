@@ -28,9 +28,9 @@ class LocationDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val args = LocationDetailFragmentArgs.fromBundle(requireArguments())
+        /*val args = LocationDetailFragmentArgs.fromBundle(requireArguments())
         if (args.location != null) {
             // display location details
-        }
+        }*/
     }
 }

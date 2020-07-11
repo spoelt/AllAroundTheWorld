@@ -1,12 +1,28 @@
 package com.spoelt.allaroundtheworld.ui.viewModel
 
-import android.content.Intent
-import androidx.core.app.ActivityCompat.startActivityForResult
+import android.net.Uri
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.spoelt.allaroundtheworld.R
-import com.spoelt.allaroundtheworld.ui.fragments.MIME_TYPE_IMAGE
-import com.spoelt.allaroundtheworld.ui.fragments.PICK_FILE_RESULT_CODE
+import androidx.lifecycle.viewModelScope
+import com.spoelt.allaroundtheworld.data.db.DatabaseHelper
+import com.spoelt.allaroundtheworld.data.model.Location
+import kotlinx.coroutines.launch
+import java.lang.Exception
+import java.util.*
 
-class CreateLocationViewModel: ViewModel() {
+class CreateLocationViewModel(private val dbHelper: DatabaseHelper): ViewModel() {
+    var imagePath = MutableLiveData<Uri>()
+    var caption = MutableLiveData<String>()
+    var locationName = MutableLiveData<String>()
 
+    fun saveLocation() {
+        viewModelScope.launch {
+            try {
+                val locationToInsert: Location = Location(UUID.randomUUID().toString(), locationName.value, caption.value, imagePath.value.toString())
+                dbHelper.insert(locationToInsert)
+            } catch (e: Exception) {
+                // handle error
+            }
+        }
+    }
 }
