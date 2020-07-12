@@ -2,14 +2,18 @@ package com.spoelt.allaroundtheworld.ui.fragments
 
 
 import android.content.Intent
+import android.database.Cursor
 import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import com.spoelt.allaroundtheworld.R
 import com.spoelt.allaroundtheworld.data.db.DatabaseBuilder
 import com.spoelt.allaroundtheworld.data.db.DatabaseHelperImpl
@@ -17,6 +21,7 @@ import com.spoelt.allaroundtheworld.databinding.FragmentCreateLocationBinding
 import com.spoelt.allaroundtheworld.ui.viewModel.CreateLocationViewModel
 import com.spoelt.allaroundtheworld.ui.viewModel.ViewModelFactory
 import com.squareup.picasso.Picasso
+
 
 const val PICK_FILE_RESULT_CODE = 1
 const val MIME_TYPE_IMAGE = "image/jpeg"
@@ -34,8 +39,10 @@ class CreateLocationFragment : Fragment() {
         binding.lifecycleOwner = this
 
         setUpViewModel()
+
         binding.saveLocationButton.setOnClickListener {
             viewModel.saveLocation()
+            findNavController().navigate(R.id.locationListFragment)
         }
         choosePicture()
 

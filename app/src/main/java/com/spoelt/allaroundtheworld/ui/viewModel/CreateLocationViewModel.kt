@@ -18,7 +18,7 @@ class CreateLocationViewModel(private val dbHelper: DatabaseHelper): ViewModel()
     fun saveLocation() {
         viewModelScope.launch {
             try {
-                val locationToInsert: Location = Location(UUID.randomUUID().toString(), locationName.value, caption.value, imagePath.value.toString())
+                val locationToInsert = Location(UUID.randomUUID().toString(), locationName.value, caption.value, imagePath.value.toString())
                 dbHelper.insert(locationToInsert)
             } catch (e: Exception) {
                 // handle error

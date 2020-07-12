@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="std_margin_fragment">16dp</dimen>
+    <dimen name="margin_bottom_card">8dp</dimen>
     <dimen name="margin_fab">8dp</dimen>
     <dimen name="card_elevation">1dp</dimen>
     <dimen name="card_corner_radius">0dp</dimen>

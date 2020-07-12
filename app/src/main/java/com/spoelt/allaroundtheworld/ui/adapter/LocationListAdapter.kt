@@ -1,6 +1,7 @@
 package com.spoelt.allaroundtheworld.ui.adapter
 
 import android.content.Context
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,11 +12,15 @@ import com.spoelt.allaroundtheworld.R
 import com.spoelt.allaroundtheworld.data.model.Location
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.recyclerview_item_location.view.*
+import java.io.File
+import java.net.URI
 
 class LocationListAdapter(private var context: Context, private val dataList: ArrayList<Location>) :
     RecyclerView.Adapter<LocationListAdapter.LocationViewHolder>() {
     lateinit var itemClickListener: OnItemClickListener
-    private val list = ArrayList<Location>(dataList)
+    private var list: List<Location> = ArrayList(dataList)
+
+    fun getLocationAtPosition(position: Int) = list.get(position)
 
     override fun getItemCount() = list.size
 
@@ -40,7 +45,7 @@ class LocationListAdapter(private var context: Context, private val dataList: Ar
         fun bind(location: Location) {
             textViewLocationName.text = location.name
             Picasso.get()
-                .load(location.imagePath)
+                .load(Uri.parse(location.imagePath!!))
                 .error(R.drawable.ic_broken_image_gray_24dp)
                 .into(imageViewLocation)
         }
@@ -54,5 +59,10 @@ class LocationListAdapter(private var context: Context, private val dataList: Ar
 
     fun setOnItemClickListener(itemClickListener: OnItemClickListener) {
         this.itemClickListener = itemClickListener
+    }
+
+    fun updateList(updatedList: List<Location>) {
+        list = updatedList
+        notifyItemRangeChanged(0, itemCount)
     }
 }
