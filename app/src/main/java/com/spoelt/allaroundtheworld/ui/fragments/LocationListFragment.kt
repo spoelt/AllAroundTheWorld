@@ -1,6 +1,9 @@
 package com.spoelt.allaroundtheworld.ui.fragments
 
 
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.Rect
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -21,6 +24,7 @@ import com.spoelt.allaroundtheworld.databinding.FragmentLocationListBinding
 import com.spoelt.allaroundtheworld.ui.adapter.LocationListAdapter
 import com.spoelt.allaroundtheworld.ui.viewModel.LocationListViewModel
 import com.spoelt.allaroundtheworld.ui.viewModel.ViewModelFactory
+import kotlin.math.roundToInt
 
 
 class LocationListFragment : Fragment() {
@@ -92,11 +96,57 @@ class LocationListFragment : Fragment() {
     }
 
     private fun setUpItemTouchHelper() {
+        val trashIcon = resources.getDrawable(R.drawable.ic_delete_white_48dp)
+        val iconMarginTopBottom =
+            resources.getDimension(R.dimen.icon_margin_top_bottom).roundToInt()
+        val iconMarginLeftRight =
+            resources.getDimension(R.dimen.icon_margin_left_right).roundToInt()
+
         val helper = ItemTouchHelper(
             object : ItemTouchHelper.SimpleCallback(
                 0,
-                ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT
+                ItemTouchHelper.RIGHT
             ) {
+                override fun onChildDraw(
+                    c: Canvas,
+                    recyclerView: RecyclerView,
+                    viewHolder: RecyclerView.ViewHolder,
+                    dX: Float,
+                    dY: Float,
+                    actionState: Int,
+                    isCurrentlyActive: Boolean
+                ) {
+                    c.clipRect(
+                        0f, viewHolder.itemView.top.toFloat(),
+                        dX, viewHolder.itemView.bottom.toFloat()
+                    )
+
+                    if (dX < c.width / 3)
+                        c.drawColor(Color.GRAY)
+                    else
+                        c.drawColor(Color.RED)
+
+                    trashIcon.bounds = Rect(
+                        iconMarginLeftRight,
+                        viewHolder.itemView.top + iconMarginTopBottom,
+                        iconMarginLeftRight + trashIcon.intrinsicWidth,
+                        viewHolder.itemView.top + trashIcon.intrinsicHeight
+                                + iconMarginTopBottom
+                    )
+
+                    trashIcon.draw(c)
+
+                    super.onChildDraw(
+                        c,
+                        recyclerView,
+                        viewHolder,
+                        dX,
+                        dY,
+                        actionState,
+                        isCurrentlyActive
+                    )
+                }
+
                 override fun onMove(
                     recyclerView: RecyclerView,
                     viewHolder: RecyclerView.ViewHolder,
