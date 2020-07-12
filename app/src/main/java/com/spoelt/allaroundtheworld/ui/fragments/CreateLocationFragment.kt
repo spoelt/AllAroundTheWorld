@@ -2,11 +2,8 @@ package com.spoelt.allaroundtheworld.ui.fragments
 
 
 import android.content.Intent
-import android.database.Cursor
 import android.net.Uri
 import android.os.Bundle
-import android.provider.MediaStore
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -50,8 +47,11 @@ class CreateLocationFragment : Fragment() {
     }
 
     private fun choosePicture() {
-        var chooseFile = Intent(Intent.ACTION_GET_CONTENT)
+        var chooseFile = Intent(Intent.ACTION_OPEN_DOCUMENT)
         chooseFile.type = MIME_TYPE_IMAGE
+        chooseFile.flags = (Intent.FLAG_GRANT_READ_URI_PERMISSION
+                or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
+                or Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION)
         chooseFile = Intent.createChooser(chooseFile, resources.getString(R.string.choose_file))
         startActivityForResult(chooseFile, PICK_FILE_RESULT_CODE)
     }
@@ -60,6 +60,7 @@ class CreateLocationFragment : Fragment() {
         when (requestCode) {
             PICK_FILE_RESULT_CODE -> if (resultCode == -1) {
                 data!!.data?.let { returnUri ->
+                    context?.contentResolver?.takePersistableUriPermission(returnUri, Intent.FLAG_GRANT_READ_URI_PERMISSION)
                     loadPicture(returnUri)
                     binding.constraintLayout.visibility = View.VISIBLE
                     viewModel.imagePath.value = returnUri
