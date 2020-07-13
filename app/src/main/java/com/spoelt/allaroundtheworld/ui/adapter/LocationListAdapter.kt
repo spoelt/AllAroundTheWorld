@@ -1,13 +1,18 @@
 package com.spoelt.allaroundtheworld.ui.adapter
 
 import android.content.Context
+import android.graphics.BitmapFactory
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.core.content.ContextCompat
+import androidx.palette.graphics.Palette
 import androidx.recyclerview.widget.RecyclerView
+import com.github.florent37.picassopalette.PicassoPalette
 import com.spoelt.allaroundtheworld.R
 import com.spoelt.allaroundtheworld.data.model.Location
 import com.squareup.picasso.Picasso
@@ -41,13 +46,16 @@ class LocationListAdapter(private var context: Context, private val dataList: Ar
 
         private val imageViewLocation: ImageView = itemView.placeImage
         private val textViewLocationName: TextView = itemView.placeName
+        private val layoutLocationName: LinearLayout = itemView.placeNameHolder
 
         fun bind(location: Location) {
             textViewLocationName.text = location.name
             Picasso.get()
                 .load(Uri.parse(location.imagePath!!))
                 .error(R.drawable.ic_broken_image_gray_24dp)
-                .into(imageViewLocation)
+                .into(imageViewLocation, PicassoPalette.with(location.imagePath, imageViewLocation)
+                    .use(PicassoPalette.Profile.VIBRANT)
+                    .intoBackground(layoutLocationName, PicassoPalette.Swatch.RGB))
         }
 
         override fun onClick(view: View) = itemClickListener.onItemClick(itemView, adapterPosition)

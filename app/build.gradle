@@ -49,6 +49,7 @@ dependencies {
 
     // Picasso
     implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'com.github.florent37:picassopalette:2.0.0'
 
     // Room
     implementation "androidx.room:room-runtime:2.2.5"
