@@ -1,7 +1,5 @@
 package com.spoelt.allaroundtheworld.ui.adapter
 
-import android.content.Context
-import android.graphics.BitmapFactory
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
@@ -9,23 +7,19 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.core.content.ContextCompat
-import androidx.palette.graphics.Palette
 import androidx.recyclerview.widget.RecyclerView
 import com.github.florent37.picassopalette.PicassoPalette
 import com.spoelt.allaroundtheworld.R
 import com.spoelt.allaroundtheworld.data.model.Location
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.recyclerview_item_location.view.*
-import java.io.File
-import java.net.URI
 
-class LocationListAdapter(private var context: Context, private val dataList: ArrayList<Location>) :
+class LocationListAdapter(dataList: ArrayList<Location>) :
     RecyclerView.Adapter<LocationListAdapter.LocationViewHolder>() {
     lateinit var itemClickListener: OnItemClickListener
     private var list: List<Location> = ArrayList(dataList)
 
-    fun getLocationAtPosition(position: Int) = list.get(position)
+    fun getLocationAtPosition(position: Int) = list[position]
 
     override fun getItemCount() = list.size
 

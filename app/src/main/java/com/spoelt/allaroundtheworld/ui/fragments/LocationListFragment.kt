@@ -75,7 +75,7 @@ class LocationListFragment : Fragment() {
     }
 
     private fun setUpRecyclerView() {
-        locationAdapter = LocationListAdapter(requireContext(), locationList)
+        locationAdapter = LocationListAdapter(locationList)
         locationAdapter.setOnItemClickListener(onItemClickListener)
         binding.recyclerViewLocations.adapter = locationAdapter
 
