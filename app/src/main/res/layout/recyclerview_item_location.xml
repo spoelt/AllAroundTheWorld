@@ -39,6 +39,7 @@
             android:gravity="start"
             android:paddingStart="@dimen/padding_location_name"
             android:paddingEnd="@dimen/padding_location_name"
+            android:paddingTop="@dimen/padding_location_name"
             android:paddingBottom="@dimen/padding_location_name"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textStyle="bold"

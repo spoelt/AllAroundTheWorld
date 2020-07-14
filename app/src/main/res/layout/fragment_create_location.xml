@@ -43,7 +43,6 @@
                 android:id="@+id/textInputLocation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:maxLength="30"
                 android:inputType="text"
                 android:lines="1"
                 android:text="@={viewModel.locationName}"/>
@@ -56,6 +55,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/std_margin_fragment"
             android:hint="@string/enter_caption"
+            app:counterEnabled="true"
+            app:counterMaxLength="30"
             app:startIconDrawable="@drawable/ic_short_text_black_24dp"
             app:endIconMode="clear_text"
             app:layout_constraintEnd_toEndOf="parent"
@@ -66,7 +67,6 @@
                 android:id="@+id/textInputCaption"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:maxLength="30"
                 android:inputType="text"
                 android:lines="1"
                 android:text="@={viewModel.caption}" />
