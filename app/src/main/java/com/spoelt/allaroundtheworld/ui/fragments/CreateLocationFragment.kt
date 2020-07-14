@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
@@ -38,9 +39,14 @@ class CreateLocationFragment : Fragment() {
         setUpViewModel()
 
         binding.saveLocationButton.setOnClickListener {
+            if (binding.textInputLocation.text.isNullOrBlank()) {
+                binding.textInputLocation.error = resources.getString(R.string.empty_location)
+                return@setOnClickListener
+            }
             viewModel.saveLocation()
             findNavController().navigate(R.id.locationListFragment)
         }
+
         choosePicture()
 
         return binding.root

@@ -4,6 +4,8 @@
     <string name="location_icon_description">Location Icon</string>
     <string name="enter_location">Location</string>
     <string name="enter_caption">Caption</string>
-    <string name="save_location">Save Location</string>
-    <string name="choose_file">Choose A File</string>
+    <string name="save_location">Save location</string>
+    <string name="choose_file">Choose a file</string>
+    <string name="empty_location">Location name cannot be empty!</string>
+    <string name="required_input">* Required</string>
 </resources>

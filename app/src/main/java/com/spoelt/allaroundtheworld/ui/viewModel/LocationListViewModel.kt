@@ -19,7 +19,7 @@ class LocationListViewModel(private val dbHelper: DatabaseHelper) : ViewModel() 
         viewModelScope.launch {
             try {
                 val locationsDb = dbHelper.getLocations() as ArrayList<Location>
-                locationList.value = locationsDb
+                locationList.value = locationsDb.asReversed()
             } catch (e: Exception) {
                 // handle error
             }
