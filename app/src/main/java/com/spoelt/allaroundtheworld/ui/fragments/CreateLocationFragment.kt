@@ -23,6 +23,8 @@ import com.squareup.picasso.Picasso
 
 
 const val PICK_FILE_RESULT_CODE = 1
+const val FILE_PICKED = -1
+const val REQUEST_CANCELLED = 0
 const val MIME_TYPE_IMAGE = "image/jpeg"
 
 class CreateLocationFragment : Fragment() {
@@ -75,14 +77,18 @@ class CreateLocationFragment : Fragment() {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        when (requestCode) {
-            PICK_FILE_RESULT_CODE -> if (resultCode == -1) {
-                data!!.data?.let { returnUri ->
-                    context?.contentResolver?.takePersistableUriPermission(returnUri, Intent.FLAG_GRANT_READ_URI_PERMISSION)
+        if (requestCode == PICK_FILE_RESULT_CODE) {
+            when (resultCode) {
+                FILE_PICKED -> data!!.data?.let { returnUri ->
+                    context?.contentResolver?.takePersistableUriPermission(
+                        returnUri,
+                        Intent.FLAG_GRANT_READ_URI_PERMISSION
+                    )
                     loadPicture(returnUri)
                     binding.constraintLayout.visibility = View.VISIBLE
                     viewModel.imagePath.value = returnUri
                 }
+                REQUEST_CANCELLED -> findNavController().navigate(R.id.locationListFragment)
             }
         }
     }
