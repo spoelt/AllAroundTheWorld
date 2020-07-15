@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -55,15 +56,23 @@ class LocationListFragment : Fragment() {
         setUpRecyclerView()
         setUpItemTouchHelper()
         setUpOnClickListener()
-        setUpObserver()
+        setUpObservers()
 
         return binding.root
     }
 
-    private fun setUpObserver() {
+    private fun setUpObservers() {
         viewModel.locationList.observe(viewLifecycleOwner, Observer {
-            it.let {
+            it?.let {
                 locationAdapter.updateList(it)
+            }
+        })
+
+        viewModel.errorMessage.observe(viewLifecycleOwner, Observer {
+            it?.let {
+                if (it.isNotEmpty()) {
+                    Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
+                }
             }
         })
     }

@@ -6,10 +6,10 @@ import androidx.lifecycle.viewModelScope
 import com.spoelt.allaroundtheworld.data.db.DatabaseHelper
 import com.spoelt.allaroundtheworld.data.model.Location
 import kotlinx.coroutines.launch
-import java.lang.Exception
 
 class LocationListViewModel(private val dbHelper: DatabaseHelper) : ViewModel() {
     var locationList: MutableLiveData<MutableList<Location>> = MutableLiveData()
+    var errorMessage: MutableLiveData<String> = MutableLiveData()
 
     init {
         getLocations()
@@ -21,7 +21,7 @@ class LocationListViewModel(private val dbHelper: DatabaseHelper) : ViewModel() 
                 val locationsDb = dbHelper.getLocations() as ArrayList<Location>
                 locationList.value = locationsDb.asReversed()
             } catch (e: Exception) {
-                // handle error
+                errorMessage.value = e.message
             }
         }
     }
@@ -32,7 +32,7 @@ class LocationListViewModel(private val dbHelper: DatabaseHelper) : ViewModel() 
                 dbHelper.delete(location)
                 locationList.value?.remove(location)
             } catch (e: Exception) {
-                // handle error
+                errorMessage.value = e.message
             }
         }
     }
