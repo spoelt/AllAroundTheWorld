@@ -11,7 +11,7 @@
         <ImageView
             android:id="@+id/placeImage"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/image_location_height"
+            android:layout_height="@dimen/image_location_height_detail"
             android:contentDescription="@string/image_content_description"
             android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
@@ -35,9 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:gravity="start"
-                android:paddingStart="@dimen/padding_location_name"
-                android:paddingEnd="@dimen/padding_location_name"
-                android:paddingBottom="@dimen/padding_location_name"
+                android:padding="@dimen/padding_location_name"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@android:color/white"
                 android:textStyle="bold"
@@ -59,7 +57,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_begin="235dp" />
+            app:layout_constraintGuide_begin="333dp" />
 
         <TextView
             android:id="@+id/caption"
@@ -67,12 +65,11 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:gravity="start"
-            android:paddingStart="@dimen/padding_location_name"
-            android:paddingEnd="@dimen/padding_location_name"
+            android:padding="@dimen/padding_caption"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@android:color/black"
             app:layout_constraintTop_toTopOf="@+id/guideline"
-            tools:text="Vienna, Austria" />
+            tools:text="Caption" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

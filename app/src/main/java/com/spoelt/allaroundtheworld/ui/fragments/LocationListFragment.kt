@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
@@ -37,9 +38,12 @@ class LocationListFragment : Fragment() {
 
     private val onItemClickListener = object : LocationListAdapter.OnItemClickListener {
         override fun onItemClick(view: View, position: Int) {
-            /*val action = LocationListFragmentDirections.actionLocationListFragmentToLocationDetailFragment()
-            findNavController().navigate(action)*/
-            // tbd
+            val detailLocation = locationAdapter.getLocationAtPosition(position)
+            val action =
+                LocationListFragmentDirections.actionLocationListFragmentToLocationDetailFragment(
+                    detailLocation
+                )
+            findNavController().navigate(action)
         }
     }
 

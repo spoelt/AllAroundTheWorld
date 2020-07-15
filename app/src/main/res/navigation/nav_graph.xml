@@ -21,7 +21,11 @@
         android:id="@+id/locationDetailFragment"
         android:name="com.spoelt.allaroundtheworld.ui.fragments.LocationDetailFragment"
         android:label="fragment_location_detail"
-        tools:layout="@layout/fragment_location_detail" />
+        tools:layout="@layout/fragment_location_detail">
+        <argument
+            android:name="location"
+            app:argType="com.spoelt.allaroundtheworld.data.model.Location" />
+    </fragment>
     <fragment
         android:id="@+id/createLocationFragment"
         android:name="com.spoelt.allaroundtheworld.ui.fragments.CreateLocationFragment"

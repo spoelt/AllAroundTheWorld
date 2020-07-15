@@ -6,7 +6,9 @@
     <dimen name="card_elevation">1dp</dimen>
     <dimen name="card_corner_radius">0dp</dimen>
     <dimen name="image_location_height">250dp</dimen>
+    <dimen name="image_location_height_detail">300dp</dimen>
     <dimen name="padding_location_name">10dp</dimen>
+    <dimen name="padding_caption">10dp</dimen>
     <dimen name="location_icon_size">30dp</dimen>
     <dimen name="icon_margin_top_bottom">101dp</dimen>
     <dimen name="icon_margin_left_right">24dp</dimen>
