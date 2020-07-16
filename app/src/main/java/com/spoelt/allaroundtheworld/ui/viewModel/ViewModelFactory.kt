@@ -12,6 +12,9 @@ class ViewModelFactory(private val dbHelper: DatabaseHelper) : ViewModelProvider
         if (modelClass.isAssignableFrom(LocationListViewModel::class.java)) {
             return LocationListViewModel(dbHelper) as T
         }
+        if (modelClass.isAssignableFrom(LocationDetailViewModel::class.java)) {
+            return LocationDetailViewModel(dbHelper) as T
+        }
         throw IllegalArgumentException("Unknown class name")
     }
 }
