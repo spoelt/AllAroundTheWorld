@@ -64,7 +64,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_begin="333dp" />
+            app:layout_constraintGuide_begin="332dp" />
 
         <TextView
             android:id="@+id/caption"
@@ -75,6 +75,7 @@
             android:padding="@dimen/padding_caption"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@android:color/black"
+            android:textSize="@dimen/text_size_caption"
             app:layout_constraintTop_toTopOf="@+id/guideline"
             tools:text="Caption" />
 

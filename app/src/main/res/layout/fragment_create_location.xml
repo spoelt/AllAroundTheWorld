@@ -57,7 +57,7 @@
             android:layout_margin="@dimen/std_margin_fragment"
             android:hint="@string/enter_caption"
             app:counterEnabled="true"
-            app:counterMaxLength="30"
+            app:counterMaxLength="50"
             app:startIconDrawable="@drawable/ic_short_text_black_24dp"
             app:endIconMode="clear_text"
             app:layout_constraintEnd_toEndOf="parent"
@@ -73,15 +73,6 @@
                 android:text="@={viewModel.caption}" />
 
         </com.google.android.material.textfield.TextInputLayout>
-
-        <Button
-            android:id="@+id/saveLocationButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/std_margin_fragment"
-            android:text="@string/save_location"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayoutCaption"
-            tools:layout_editor_absoluteX="16dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

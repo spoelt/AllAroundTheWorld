@@ -8,8 +8,8 @@
     <fragment
         android:id="@+id/locationListFragment"
         android:name="com.spoelt.allaroundtheworld.ui.fragments.LocationListFragment"
-        android:label="fragment_location_list"
-        tools:layout="@layout/fragment_location_list" >
+        android:label="All Around The World"
+        tools:layout="@layout/fragment_location_list">
         <action
             android:id="@+id/action_locationListFragment_to_locationDetailFragment"
             app:destination="@id/locationDetailFragment" />
@@ -20,7 +20,7 @@
     <fragment
         android:id="@+id/locationDetailFragment"
         android:name="com.spoelt.allaroundtheworld.ui.fragments.LocationDetailFragment"
-        android:label="fragment_location_detail"
+        android:label="Details"
         tools:layout="@layout/fragment_location_detail">
         <argument
             android:name="location"
@@ -29,5 +29,5 @@
     <fragment
         android:id="@+id/createLocationFragment"
         android:name="com.spoelt.allaroundtheworld.ui.fragments.CreateLocationFragment"
-        android:label="CreateLocationFragment" />
+        android:label="Add Location" />
 </navigation>

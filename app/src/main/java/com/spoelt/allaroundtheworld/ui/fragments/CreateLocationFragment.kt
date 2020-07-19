@@ -20,6 +20,7 @@ import com.spoelt.allaroundtheworld.databinding.FragmentCreateLocationBinding
 import com.spoelt.allaroundtheworld.ui.viewModel.CreateLocationViewModel
 import com.spoelt.allaroundtheworld.ui.viewModel.ViewModelFactory
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 const val PICK_FILE_RESULT_CODE = 1
@@ -39,21 +40,27 @@ class CreateLocationFragment : Fragment() {
             DataBindingUtil.inflate(inflater, R.layout.fragment_create_location, container, false)
         binding.lifecycleOwner = this
 
+        choosePicture()
+        setUpActionBar()
         setUpViewModel()
         setUpObserver()
 
-        binding.saveLocationButton.setOnClickListener {
-            if (binding.textInputLocation.text.isNullOrBlank()) {
-                binding.textInputLocation.error = resources.getString(R.string.empty_location)
-                return@setOnClickListener
-            }
-            viewModel.saveLocation()
-            findNavController().navigate(R.id.locationListFragment)
-        }
-
-        choosePicture()
-
         return binding.root
+    }
+
+    private fun setUpActionBar() {
+        activity?.toolbar?.inflateMenu(R.menu.menu)
+        activity?.toolbar?.setOnMenuItemClickListener {
+            if (it.itemId == R.id.save) {
+                if (binding.textInputLocation.text.isNullOrBlank()) {
+                    binding.textInputLocation.error = resources.getString(R.string.empty_location)
+                } else {
+                    viewModel.saveLocation()
+                    findNavController().navigate(R.id.locationListFragment)
+                }
+            }
+            true
+        }
     }
 
     private fun setUpObserver() {
