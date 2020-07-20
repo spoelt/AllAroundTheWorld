@@ -14,7 +14,6 @@ import java.util.*
 data class Location(
     @PrimaryKey val id: String,
     @ColumnInfo(name = "name") val name: String?,
-    @ColumnInfo(name = "caption") val caption: String?,
-    //@ColumnInfo(name = "date") val date: Date?,
+    @ColumnInfo(name = "caption") var caption: String?,
     @ColumnInfo(name = "image") val imagePath: String?
 ) : Parcelable

@@ -50,34 +50,29 @@
 
         </LinearLayout>
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fabCaption"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_fab"
-            android:src="@drawable/ic_add_white_24dp"
-            app:layout_constraintBottom_toTopOf="@+id/guideline"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_begin="332dp" />
-
-        <TextView
-            android:id="@+id/caption"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayoutCaption"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:gravity="start"
-            android:padding="@dimen/padding_caption"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@android:color/black"
-            android:textSize="@dimen/text_size_caption"
-            app:layout_constraintTop_toTopOf="@+id/guideline"
-            tools:text="Caption" />
+            android:layout_margin="@dimen/std_margin_fragment"
+            android:hint="@string/enter_caption"
+            app:counterEnabled="true"
+            app:counterMaxLength="50"
+            app:startIconDrawable="@drawable/ic_short_text_black_24dp"
+            app:endIconMode="clear_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/placeNameHolder">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textInputCaption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:lines="1"
+                android:text="" />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

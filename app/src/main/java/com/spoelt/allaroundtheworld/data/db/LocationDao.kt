@@ -1,9 +1,6 @@
 package com.spoelt.allaroundtheworld.data.db
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 import com.spoelt.allaroundtheworld.data.model.Location
 @Dao
 interface LocationDao {
@@ -15,6 +12,9 @@ interface LocationDao {
 
     @Insert
     suspend fun insert(location: Location)
+
+    @Update
+    suspend fun update(location: Location)
 
     @Delete
     suspend fun delete(location: Location)

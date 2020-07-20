@@ -3,6 +3,7 @@
     <dimen name="std_margin_fragment">8dp</dimen>
     <dimen name="margin_bottom_card">8dp</dimen>
     <dimen name="margin_fab">8dp</dimen>
+    <dimen name="margin_edittext_caption">20dp</dimen>
     <dimen name="card_elevation">1dp</dimen>
     <dimen name="card_corner_radius">0dp</dimen>
     <dimen name="image_location_height">250dp</dimen>
