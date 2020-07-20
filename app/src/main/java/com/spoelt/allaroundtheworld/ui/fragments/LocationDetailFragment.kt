@@ -49,7 +49,12 @@ class LocationDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         val args = LocationDetailFragmentArgs.fromBundle(requireArguments())
+        loadData(args)
+    }
+
+    private fun loadData(args: LocationDetailFragmentArgs) {
         Picasso.get()
             .load(Uri.parse(args.location.imagePath!!))
             .error(R.drawable.ic_broken_image_gray_24dp)
@@ -60,5 +65,9 @@ class LocationDetailFragment : Fragment() {
             )
         binding.placeName.text = args.location.name
         binding.caption.text = args.location.caption
+
+        if (!binding.caption.text.isNullOrBlank()) {
+            binding.fabCaption.setImageResource(R.drawable.ic_edit_white_24dp)
+        }
     }
 }
