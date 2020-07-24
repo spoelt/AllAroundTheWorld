@@ -3,7 +3,6 @@ package com.spoelt.allaroundtheworld.ui.fragments
 
 import android.net.Uri
 import android.os.Bundle
-import android.text.Editable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -103,6 +102,6 @@ class LocationDetailFragment : Fragment() {
                     .intoBackground(binding.placeNameHolder, PicassoPalette.Swatch.RGB)
             )
         binding.placeName.text = args.location.name
-        //binding.textInputCaption.setText(args.location.caption)
+        binding.textInputCaption.setText(args.location.caption)
     }
 }
