@@ -34,7 +34,6 @@ class LocationListFragment : Fragment() {
     private lateinit var binding: FragmentLocationListBinding
     private lateinit var staggeredLayoutManager: StaggeredGridLayoutManager
     private lateinit var viewModel: LocationListViewModel
-    private val locationList: ArrayList<Location> = ArrayList()
 
     private val onItemClickListener = object : LocationListAdapter.OnItemClickListener {
         override fun onItemClick(view: View, position: Int) {
@@ -88,7 +87,7 @@ class LocationListFragment : Fragment() {
     }
 
     private fun setUpRecyclerView() {
-        locationAdapter = LocationListAdapter(locationList)
+        locationAdapter = LocationListAdapter()
         locationAdapter.setOnItemClickListener(onItemClickListener)
         binding.recyclerViewLocations.adapter = locationAdapter
 

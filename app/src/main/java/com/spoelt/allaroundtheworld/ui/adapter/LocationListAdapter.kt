@@ -14,10 +14,10 @@ import com.spoelt.allaroundtheworld.data.model.Location
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.recyclerview_item_location.view.*
 
-class LocationListAdapter(dataList: ArrayList<Location>) :
+class LocationListAdapter :
     RecyclerView.Adapter<LocationListAdapter.LocationViewHolder>() {
     lateinit var itemClickListener: OnItemClickListener
-    private var list: List<Location> = ArrayList(dataList)
+    private var list: List<Location> = ArrayList()
 
     fun getLocationAtPosition(position: Int) = list[position]
 
