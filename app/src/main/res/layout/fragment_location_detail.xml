@@ -10,69 +10,75 @@
             type="com.spoelt.allaroundtheworld.ui.viewModel.LocationDetailViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ui.fragments.LocationDetailFragment">
+        android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/placeImage"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/image_location_height_detail"
-            android:contentDescription="@string/image_content_description"
-            android:scaleType="centerCrop"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:src="@tools:sample/backgrounds/scenic" />
-
-        <LinearLayout
-            android:id="@+id/placeNameHolder"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="@+id/placeImage"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            tools:context=".ui.fragments.LocationDetailFragment">
 
-            <TextView
-                android:id="@+id/placeName"
+            <ImageView
+                android:id="@+id/placeImage"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/image_location_height_detail"
+                android:contentDescription="@string/image_content_description"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@tools:sample/backgrounds/scenic" />
+
+            <LinearLayout
+                android:id="@+id/placeNameHolder"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:gravity="start"
-                android:padding="@dimen/padding_location_name"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@android:color/white"
-                android:textStyle="bold"
-                tools:text="Vienna, Austria" />
+                android:layout_gravity="bottom"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@+id/placeImage"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
 
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/placeName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="start"
+                    android:padding="@dimen/padding_location_name"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    tools:text="Vienna, Austria" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayoutCaption"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/std_margin_fragment"
-            android:hint="@string/enter_caption"
-            app:counterEnabled="true"
-            app:counterMaxLength="50"
-            app:startIconDrawable="@drawable/ic_short_text_black_24dp"
-            app:endIconMode="clear_text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/placeNameHolder">
+            </LinearLayout>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/textInputCaption"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutCaption"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text"
-                android:lines="1"
-                android:text="" />
+                android:layout_margin="@dimen/std_margin_fragment"
+                android:hint="@string/enter_caption"
+                app:counterEnabled="true"
+                app:counterMaxLength="50"
+                app:endIconMode="clear_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/placeNameHolder"
+                app:startIconDrawable="@drawable/ic_short_text_black_24dp">
 
-        </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/textInputCaption"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:lines="1"
+                    android:text="" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
 </layout>

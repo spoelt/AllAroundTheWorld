@@ -8,9 +8,6 @@ interface LocationDao {
     suspend fun getAll(): List<Location>
 
     @Insert
-    suspend fun insertAll(users: List<Location>)
-
-    @Insert
     suspend fun insert(location: Location)
 
     @Update

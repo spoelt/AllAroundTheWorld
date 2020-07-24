@@ -70,9 +70,9 @@ class LocationDetailFragment : Fragment() {
                 val location = Location(
                     args.location.id,
                     args.location.name,
-                    args.location.caption,
+                    binding.textInputCaption.text.toString(),
                     args.location.imagePath
-                ) // get caption value from edittext
+                )
                 viewModel.updateLocation(location)
                 findNavController().navigate(R.id.locationListFragment)
             }
