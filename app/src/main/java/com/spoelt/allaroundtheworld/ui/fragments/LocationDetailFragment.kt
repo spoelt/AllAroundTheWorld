@@ -53,12 +53,9 @@ class LocationDetailFragment : Fragment() {
     private fun setUpObservers() {
         viewModel.errorMessage.observe(viewLifecycleOwner, Observer {
             it?.let {
-                Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
-            }
-        })
-        viewModel.successMessageId.observe(viewLifecycleOwner, Observer {
-            it?.let {
-                Toast.makeText(requireContext(), resources.getString(it), Toast.LENGTH_SHORT).show()
+                if (it.isNotBlank()) {
+                    Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
+                }
             }
         })
     }

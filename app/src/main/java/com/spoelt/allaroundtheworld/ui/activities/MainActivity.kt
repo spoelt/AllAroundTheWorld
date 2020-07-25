@@ -1,4 +1,4 @@
-package com.spoelt.allaroundtheworld.ui
+package com.spoelt.allaroundtheworld.ui.activities
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -38,7 +38,6 @@ class MainActivity : AppCompatActivity() {
                     toolbar.navigationIcon =
                         getDrawable(R.drawable.ic_arrow_back_white_24dp)
                     toolbar.title = getString(R.string.details_header)
-                    //toolbar.menu?.clear()
                 }
                 R.id.locationListFragment -> {
                     toolbar.navigationIcon = null

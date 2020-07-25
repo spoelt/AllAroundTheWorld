@@ -18,4 +18,5 @@
     <string name="add_location_header">Add Location</string>
     <string name="successful_update">The location was successfully updated</string>
     <string name="caption_description">Enter a caption</string>
+    <string name="empty_string"></string>
 </resources>

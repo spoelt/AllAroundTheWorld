@@ -46,6 +46,8 @@ class LocationListAdapter :
             textViewLocationName.text = location.name
             Picasso.get()
                 .load(Uri.parse(location.imagePath!!))
+                .fit()
+                .centerInside()
                 .error(R.drawable.ic_broken_image_gray_24dp)
                 .into(imageViewLocation, PicassoPalette.with(location.imagePath, imageViewLocation)
                     .use(PicassoPalette.Profile.VIBRANT)
