@@ -12,10 +12,12 @@
         tools:layout="@layout/fragment_location_list">
         <action
             android:id="@+id/action_locationListFragment_to_locationDetailFragment"
-            app:destination="@id/locationDetailFragment" />
+            app:destination="@id/locationDetailFragment"
+            app:popUpTo="@+id/locationListFragment" />
         <action
             android:id="@+id/action_locationListFragment_to_createLocationFragment"
-            app:destination="@id/createLocationFragment" />
+            app:destination="@id/createLocationFragment"
+            app:popUpTo="@+id/locationListFragment" />
     </fragment>
     <fragment
         android:id="@+id/locationDetailFragment"
@@ -25,9 +27,18 @@
         <argument
             android:name="location"
             app:argType="com.spoelt.allaroundtheworld.data.model.Location" />
+        <action
+            android:id="@+id/action_locationDetailFragment_to_locationListFragment2"
+            app:destination="@id/locationListFragment"
+            app:popUpTo="@+id/locationListFragment" />
     </fragment>
     <fragment
         android:id="@+id/createLocationFragment"
         android:name="com.spoelt.allaroundtheworld.ui.fragments.CreateLocationFragment"
-        android:label="Add Location" />
+        android:label="Add Location">
+        <action
+            android:id="@+id/action_createLocationFragment_to_locationListFragment2"
+            app:destination="@id/locationListFragment"
+            app:popUpTo="@+id/locationListFragment" />
+    </fragment>
 </navigation>

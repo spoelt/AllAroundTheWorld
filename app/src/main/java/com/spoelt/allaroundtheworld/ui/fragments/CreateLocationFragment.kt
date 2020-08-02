@@ -56,7 +56,8 @@ class CreateLocationFragment : Fragment() {
                     binding.textInputLocation.error = resources.getString(R.string.empty_location)
                 } else {
                     viewModel.saveLocation()
-                    view?.findNavController()?.navigate(R.id.locationListFragment)
+                    view?.findNavController()
+                        ?.navigate(CreateLocationFragmentDirections.actionCreateLocationFragmentToLocationListFragment2())
                 }
             }
             true
@@ -95,7 +96,9 @@ class CreateLocationFragment : Fragment() {
                     binding.constraintLayout.visibility = View.VISIBLE
                     viewModel.imagePath.value = returnUri
                 }
-                REQUEST_CANCELLED -> view?.findNavController()?.navigate(R.id.locationListFragment)
+                REQUEST_CANCELLED -> view?.findNavController()?.navigate(
+                    CreateLocationFragmentDirections.actionCreateLocationFragmentToLocationListFragment2()
+                )
             }
         }
     }

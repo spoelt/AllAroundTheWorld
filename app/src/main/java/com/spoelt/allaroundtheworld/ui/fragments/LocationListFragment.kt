@@ -82,7 +82,8 @@ class LocationListFragment : Fragment() {
 
     private fun setUpOnClickListener() {
         binding.fabAddLocation.setOnClickListener {
-            it.findNavController().navigate(R.id.createLocationFragment)
+            it.findNavController()
+                .navigate(LocationListFragmentDirections.actionLocationListFragmentToCreateLocationFragment())
         }
     }
 

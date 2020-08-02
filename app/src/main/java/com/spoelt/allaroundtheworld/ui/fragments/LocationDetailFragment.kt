@@ -71,7 +71,8 @@ class LocationDetailFragment : Fragment() {
                     args.location.imagePath
                 )
                 viewModel.updateLocation(location)
-                view?.findNavController()?.navigate(R.id.locationListFragment)
+                view?.findNavController()
+                    ?.navigate(LocationDetailFragmentDirections.actionLocationDetailFragmentToLocationListFragment2())
             }
             true
         }
