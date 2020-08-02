@@ -1,6 +1,9 @@
 package com.spoelt.allaroundtheworld.ui.activities
 
+import android.content.Context
 import android.os.Bundle
+import android.view.View
+import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
@@ -43,8 +46,15 @@ class MainActivity : AppCompatActivity() {
                     toolbar.navigationIcon = null
                     toolbar.title = getString(R.string.app_name)
                     toolbar.menu?.clear()
+                    hideKeyboard(this, this.currentFocus)
                 }
             }
         }
+    }
+
+    private fun hideKeyboard(context: Context?, view: View?) {
+        val inputMethodManager =
+            context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(view?.windowToken, 0)
     }
 }

@@ -49,8 +49,8 @@ class CreateLocationFragment : Fragment() {
     }
 
     private fun setUpActionBar() {
-        activity?.toolbar?.inflateMenu(R.menu.menu)
-        activity?.toolbar?.setOnMenuItemClickListener {
+        this.activity?.toolbar?.inflateMenu(R.menu.menu)
+        this.activity?.toolbar?.setOnMenuItemClickListener {
             if (it.itemId == R.id.save) {
                 if (binding.textInputLocation.text.isNullOrBlank()) {
                     binding.textInputLocation.error = resources.getString(R.string.empty_location)
