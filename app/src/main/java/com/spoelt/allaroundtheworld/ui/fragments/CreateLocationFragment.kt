@@ -12,7 +12,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import androidx.navigation.fragment.findNavController
+import androidx.navigation.findNavController
 import com.spoelt.allaroundtheworld.R
 import com.spoelt.allaroundtheworld.data.db.DatabaseBuilder
 import com.spoelt.allaroundtheworld.data.db.DatabaseHelperImpl
@@ -56,7 +56,7 @@ class CreateLocationFragment : Fragment() {
                     binding.textInputLocation.error = resources.getString(R.string.empty_location)
                 } else {
                     viewModel.saveLocation()
-                    findNavController().navigate(R.id.locationListFragment)
+                    view?.findNavController()?.navigate(R.id.locationListFragment)
                 }
             }
             true
@@ -95,7 +95,7 @@ class CreateLocationFragment : Fragment() {
                     binding.constraintLayout.visibility = View.VISIBLE
                     viewModel.imagePath.value = returnUri
                 }
-                REQUEST_CANCELLED -> findNavController().navigate(R.id.locationListFragment)
+                REQUEST_CANCELLED -> view?.findNavController()?.navigate(R.id.locationListFragment)
             }
         }
     }
