@@ -12,8 +12,8 @@ import java.util.*
 
 class CreateLocationViewModel(private val dbHelper: DatabaseHelper) : ViewModel() {
     var imagePath = MutableLiveData<Uri>()
-    private var caption = MutableLiveData<String>()
-    private var locationName = MutableLiveData<String>()
+    var caption = MutableLiveData<String>()
+    var locationName = MutableLiveData<String>()
 
     private val _errorMessage = MutableLiveData<String>()
     val errorMessage: LiveData<String>
